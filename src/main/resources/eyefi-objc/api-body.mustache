@@ -46,7 +46,7 @@ static NSString * basePath = @"{{basePath}}";
     if ([requestUrl rangeOfString:@".{format}"].location != NSNotFound)
         [requestUrl replaceCharactersInRange: [requestUrl rangeOfString:@".{format}"] withString:@".json"];
 
-    {{#pathParams}}[requestUrl replaceCharactersInRange: [requestUrl rangeOfString:[NSString stringWithFormat:@"%@%@%@", @"{", @"{{baseName}}", @"}"]] withString: [_api escapeString:{{paramName}}]];
+    {{#pathParams}}[requestUrl replaceCharactersInRange: [requestUrl rangeOfString:[NSString stringWithFormat:@"%@%@%@", @"{", @"{{baseName}}", @"}"]] withString: [_api escapeString:[{{paramName}} description]]];
     {{/pathParams}}
 
     NSString* contentType = @"application/json";
